@@ -61,12 +61,12 @@ function getRandomElement(array) {
 
 
 function subtitlesPath(series_name, episode, arabic, translation){
-    return `1 Saladin Webapp/subs_js/subs-${series_name}-${episode}${arabic}${translation}.js`;}
+    return `subs_js/subs-${series_name}-${episode}${arabic}${translation}.js`;}
 
 function imagePaths(series_name, episode){
-    return [`1 Saladin Webapp/images/img-${series_name}-${episode}.png`,
-            `1 Saladin Webapp/images/img-${series_name}-${episode}.jpg`,
-            `1 Saladin Webapp/images/img-${series_name}-${episode}.webp`];}
+    return [`images/img-${series_name}-${episode}.png`,
+            `images/img-${series_name}-${episode}.jpg`,
+            `images/img-${series_name}-${episode}.webp`];}
 
 function videoPath(series_name, episode, format){
     return `../../${series_name} videos/${series_name}-${episode}.${format}`;}
@@ -259,4 +259,4 @@ updateLabel(slider.value);});
 // SEND INFORMATION TO THE FOLLOWING PAGE
 function navigateWithQuery(series, episode) {
     // Navigate to the next page with query parameter
-    window.location.href = `1 Saladin Webapp/app1/1 Dictation.html?series=${encodeURIComponent(series)}&episode=${encodeURIComponent(episode)}&language=${language}`;};
+    window.location.href = `app1/1 Dictation.html?series=${encodeURIComponent(series)}&episode=${encodeURIComponent(episode)}&language=${language}`;};
