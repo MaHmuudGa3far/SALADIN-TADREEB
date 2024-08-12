@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start; overflow: auto;}
+.main-div {
+    width: 700px; min-width: 700px; min-height: 1000px;
+    border:  10px solid #87CEFA; margin: 0px; overflow: auto;}
+.title {text-align: center; border: 10px double #87CEFA; margin-top: 0px;
+        margin-bottom: 0px;}
+/*///////////////////////////////////////////////////////////////*/
+.video_and_controls {
+    flex: 0 0 0; background-color: black; /*display: flex;*/
+    justify-content: center; align-items: center; font-size: 16px;
+    
+    white-space: normal; /* Allows text to wrap */
+    word-wrap: break-word; /* Breaks long words */
+    word-break: break-all; /* Breaks all words when necessary */
+    overflow-wrap: break-word; /* Ensures the text wraps correctly */
+}
+
+.iframe-container {
+    display: flex; justify-content: center; width: 100%;}
+.video {display: flex; justify-content: center; align-items: center;}
+
+.horizontal-buttons-top,
+.horizontal-buttons-bottom {
+    display: flex;justify-content: center;}
+
+/*/////////////////////////////////////////////////////////*/
+
+
+.exr_container{
+  display: flex; overflow: auto; margin: 7px;}
+
+.check_container{
+    display: flex; justify-content: center; align-items: center;
+    background-color: #87CEFA;}
+
+.transcript_container{
+    height: 210px; overflow: auto; display: flex;
+    flex-direction: columns; border-bottom: 3px solid #87CEFA;}
+#transcript_div {
+    width: 100%; height: 280px; overflow-y: auto;
+    display: block; border-bottom: 7px double #87CEFA;
+    direction: rtl;}
+    
+.cntrl_button {
+    background-color: black; color: white; border: none;
+    padding: 10px 20px; font-size: 16px; cursor: pointer;
+    border-radius: 5px;}
+
+.cntrl_button:hover {
+    background-color: #333; /* Slightly lighter black for hover effect */
+}
+
+.exr_button {
+    background-color: #87CEFA; /* Light sky blue color */
+    border: none; color: white; padding: 10px 20px;
+    text-align: center; text-decoration: none; display: inline-block;
+    font-size: 16px; margin: 4px 2px; cursor: pointer;
+    border-radius: 5px;}
+
+.transcript_button{
+    background-color: #87CEFA; border: none; color: white;
+    padding: 10px 20px; text-align: center; text-decoration: none;
+    /*display: inline-block;*/ font-size: 16px; margin: 4px 2px;
+    cursor: pointer; border-radius: 5px;}
+.clickable-text {
+    background-color: #87CEFA; /* Light sky blue color */
+    border: none; color: white; padding: 10px 20px;
+    text-align: center; text-decoration: none;
+    display: inline-block; font-size: 16px;
+    margin: 4px 2px; cursor: pointer;
+    border-radius: 5px; user-select: text; /* Ensure the text is selectable */
+}
+
+.tooltip {
+    position: relative;
+    /*display: inline-block;*/
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.60;
+}
+
+.rtl-text {
+    direction: rtl;
+    display: block;
+}
+.ltr-text {direction: ltr; display: block;}
+
+
+/* General scrollbar styles for all elements */
+* {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #aaa transparent; /* Firefox */
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+*::-webkit-scrollbar {
+    width: 8px; /* Thin width */
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent; /* Transparent background */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #aaa; /* Thumb color */
+    border-radius: 10px; /* Rounded corners */
+    border: 2px solid transparent; /* Padding around thumb */
+}
+
+/* Hide scrollbar when not scrolling */
+* {
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* IE 10+ */
+}
+
+.connect_div {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns each taking 50% of the width */
+    width: 100%; /* Container takes full width of the parent */
+    min-height: 460px;
+}
+.connect_cell {
+    border: 7px double #87CEFA;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    padding: 5px;
+}
+
+.dynamicButton {
+    transition: opacity 1s ease-out;
+}
+.fade-out {
+    opacity: 0;
+}
