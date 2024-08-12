@@ -1,0 +1,273 @@
+<!--I - -- - -- - -- - -- - باسم اللّه الرحمن الرحيم - -- - -- - -- - -- - I-->
+<!DOCTYPE html>
+<html>
+<head><title>الصَفحَة الرَئيسِيَّة</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="1 Saladin Webapp/images/1-qebaa.png">
+</head>
+<style>
+body {
+    margin: 0;font-family: Arial, sans-serif;display: flex;
+    flex-direction: column;align-items: center;overflow: auto;}
+.main-div {
+    border: 20px double #87CEFA;width: 700px;display: flex;
+    flex-direction: column;}
+.title { text-align: center; margin-top: 0px;
+    padding-top: 10px; background-color: #87CEFA; border: 10px double white;}
+/**********************************************************************/
+
+.video-container {display: flex;justify-content: center;align-items: center;}
+.video-container iframe {width: 698px;height: 390px;flex: 0 0 auto;
+    display: flex;align-items: center;margin: 0px;}
+
+/**********************************************************************/
+.options-div{display: flex;overflow-x: auto;padding-top: 20px;
+    padding-bottom: 20px;background-color: #87CEFA; align-items: center;
+    justify-content: center;}
+
+.form-container {flex: 0 0 auto;display: flex;align-items: center;
+    padding: 10px;background-color: #87CEFA;color: #fff;
+    border: 2px solid #fff;border-radius: 5px;margin: 0 10px;
+    width: 400px;}
+.form-options {display: flex;margin: 0 10px;}
+.form-options label {margin: 0 10px;}
+.dropdown {
+    background-color: #87CEFA; border: 2px solid white;
+    border-radius: 5px;padding: 5px; font-size: 16px;}
+/*********************************************************************************/
+.tooltip {
+    /*position: relative;*/
+    /*display: inline-block;*/
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 70%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.70;
+}
+
+
+.button-grid {text-align: center; box-sizing: border-box; padding-right: 10px; padding-left: 10px;width: 100%;}
+
+.image-button {
+    position: relative; /* Required for absolute positioning of the label */
+    background-size: cover; /* Ensure the image covers the button */
+    background-repeat: no-repeat; /* Prevent repeating */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer/hand icon on hover */
+    outline: none; /* Remove outline */
+    border-radius: 12px; /* Rounded corners */
+    width: 160px; /* Adjust the width */
+    height: 90px; /* Adjust the height */
+    margin: 3px;
+    color: transparent; /* Hide button text */
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    background-position: center;
+}
+.button-label {
+    position: absolute;bottom: 0;left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.55); /* White background with 50% opacity */
+    padding: 0px;
+    border-radius: 0 0 12px 12px; /* Rounded corners at the bottom */
+    width: 100%; /* Ensure the label spans the width of the button */
+    text-align: center; /* Center the text inside the label */
+    font-size: 12px;
+    color: #000; /* Text color for the label */
+}
+.image-button img {
+    max-width: 100%;
+    max-height: 100%;
+    /*object-fit: contain; */  /* Ensure the image fits within the button without distortion */
+}
+
+.button100 {
+    position: relative; /* Required for absolute positioning of the label */
+    box-sizing: border-box;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    border: 8px solid #87CEFA;
+    cursor: pointer; /* Pointer/hand icon on hover */
+    outline: none; /* Remove outline */
+    border-radius: 50%; /* Rounded corners */
+    width: 160px; /* Adjust the width */
+    height: 160px; /* Adjust the height */
+    margin-top: 10px;
+    color: transparent; /* Hide button text */
+    overflow: hidden;
+    background-color: white;
+    padding: 7px;
+}
+
+.button100 img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;   /* Ensure the image fits within the button without distortion */
+}
+/************************************************************************************************************/
+/************************************************************************************************************/
+/************************************************************************************************************/
+</style>
+
+<body>
+<div style="display: flex; align-items: center;">
+<div class="main-div" id="main-div">
+<div class="video-container">
+    <!--<video width="640" height="360" controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>-->
+    <div id="ytplayer"></div>
+<!--     <script async src="https://www.youtube.com/iframe_api"></script> -->
+</div>
+<div class="button-grid">
+    <button class="image-button button100">
+        <img src="1 Saladin Webapp/images/Al-Quran.png">
+    </button>
+</div>
+<div>
+    <h1 class="title">الصَفحَة الرَئيسِيَّة</h1>
+</div>
+<script id="subs_script"></script>
+<script src='SERIES INFORMATION.js'></script>
+<script src="1 Saladin Webapp/app1/METHODS_MAIN.js"></script>
+
+<script>
+    let proposedSubsList = []; // AUTOMATICALLY GENERATED SUBS FILES PATHS FOR SEARCHING
+    let presentSubsList = []; // LIST OD SUBS FILES THAT ARE ACTUALLY PRESENT
+    // POPULATE THE proposedSubsList
+    for (let i=0; i<SERIES_INFORMATION.length; i++){
+        for (let ii=1; ii<=MAX_EPISODE_N_IN_SERIES; ii++){
+            proposedSubsList.push({
+                series: i, episode: ii, variable: 'time_codes',
+                path: subtitlesPath(SERIES_INFORMATION[i].name, ii, '-times', '')})}}
+    // CREATE A DIV FOR EACH SERIES IN WHICH TO INCLUDE IT'S BUTTONS
+    for (let i=0; i<SERIES_INFORMATION.length; i++){
+        var div = document.createElement('div');
+        div.id = `div-${SERIES_INFORMATION[i].name}`; //example: div-saladin
+        div.classList.add("button-grid");
+        div.innerHTML = `<h3> ${SERIES_INFORMATION[i].title} </h3>`;
+        document.getElementById('main-div').appendChild(div);}
+
+    function loadScript(scriptPath, variableName) {
+        return new Promise((resolve, reject) => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = scriptPath;
+            scriptElement.onload = () => {
+                // Check if the specified global variable is defined
+                if (typeof window[variableName] !== 'undefined') {
+                    console.log(`Script loaded from ${scriptPath}:`, window[variableName][0]);
+                    resolve(window[variableName]);
+                } else {
+                    resolve(null); // Resolve even if the variable is not defined
+                }
+            };
+            scriptElement.onerror = () => {
+                console.error(`Failed to load script: ${scriptPath}`);
+                resolve(null); // Resolve even on error to continue the chain
+            };
+            document.head.appendChild(scriptElement);
+        });
+    }
+
+    function loadScriptsSequentially(scripts) {
+        let promise = Promise.resolve();
+
+        scripts.forEach(scriptInfo => {
+            promise = promise.then(() => loadScript(scriptInfo.path, scriptInfo.variable).then(variableContent => {
+                if (variableContent !== null) {
+                    // Perform operations with the `variableContent` here if it exists
+                    console.log(`Processing content of variable ${scriptInfo.variable}:`, variableContent[0]);
+                    // Example operation
+                    // processScriptContent(variableContent); // Replace this with your actual processing function
+                    var button = document.createElement('button');
+                    /////////////////////////////////////////////////////////////////////////////////////
+                    button.addEventListener('click', ()=>{navigateWithQuery(scriptInfo.series,scriptInfo.episode)})
+                    button.id = `button-${SERIES_INFORMATION[scriptInfo.series].name}-${scriptInfo.episode}`;
+                    button.classList.add("image-button");
+                    button.classList.add("tooltip");
+                    video_title = document.createElement('span');
+                    video_title.classList.add('button-label');
+                    video_title.textContent = `الحلقة ${scriptInfo.episode}`;
+                    button.appendChild(video_title);
+
+                    video_subs = document.createElement('span');
+                    video_subs.classList.add('tooltiptext')
+                    button.appendChild(video_subs);
+
+                    findExistingImage(imagePaths(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode))
+                    .then((result) => {
+                        existingImagePath = result;
+                        if (existingImagePath) {
+                            //console.log('image_____________________exists: '+existingImagePath);
+                            button.style.backgroundImage = `url("${existingImagePath}")`;}})
+                    document.getElementById(`div-${SERIES_INFORMATION[scriptInfo.series].name}`).appendChild(button);
+                    presentSubsList.push(button);
+                    // NOTING WHICH EPISODES ARE IN STANDARD ARABIC
+                    if(SERIES_INFORMATION[scriptInfo.series].dialect == 'standard'){is_standard.push(button);}
+                    // NOTING WHICH EPISODES HAVE ARABIC SUBTITLES AND WHICH ONES HAVE DIACRITICS
+                    loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-ar'))
+                    .then(success => {if(success){
+                        has_ar_subs.push(button);
+                        // LOOP THROUGH SOME SENTENCES AND WRITE DOWN EVERY TIME A DIACRITIC APPEARS
+                        ar_subs = arabic_subs; let diac_count = 0;
+                        for (let idx = 0; idx <= 3; idx++){// LOOP THROUGH SENTENCES
+                            const c_idx = idx;
+                            for (let idx2=0; idx2 <= ar_subs[idx][0].length; idx2++){ // LOOP THROUGH SENTENCE LETTERS
+                                const c_idx2 = idx2;
+                                if (ar_subs[c_idx][0][c_idx2]=='َ' ||  ar_subs[c_idx][0][c_idx2]=='ِ' || ar_subs[c_idx][0][c_idx2]=='ُ'){
+                                    diac_count++;}}}
+                        // IF ENOUGH DIACRITICS ARE FOUND INCLUDE THE EPISODE
+                        if (diac_count >= 7){has_diacritics.push(button)}}})
+                    // NOTING WHICH EPISODES HAVE ENGLISH SUBTITLES
+                    loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-en'))
+                    .then(success => {if(success){has_en_subs.push(button);}})
+                    // NOTING WHICH EPISODES HAVE SPANISH SUBTITLES
+                    loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-es'))
+                    .then(success => {if(success){has_es_subs.push(button);
+                        // NOTING DOWN WHICH ONES HAVE TRANSLATION SUBTITLES IN GENERAL
+                        has_translation_subs = mergeUnique(has_en_subs, has_es_subs);}})
+                    // NOTING DOWN WHICH ONES HAVE TRANSLITERATION
+                    loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-transliteration'))
+                    .then(success => {if(success){
+                        if(transliteration.length == time_codes.length)
+                            {has_transliteration.push(button);}}})}
+                else {
+                    console.log(`Script ${scriptInfo.path} did not provide content or failed to load.`);}}));});
+        return promise;}
+    loadScriptsSequentially(proposedSubsList);
+</script>
+<div class="options-div">
+    <div class="form-container slider-container">
+        <select id="myDropdown" class="dropdown" onchange="updateFilter(arLevel, this.value)">
+            <option value="en" selected>English</option>
+            <option value="es">Castellano</option>
+            <option value="">No translation</option>
+        </select>
+        <input type="range" id="slider" min="1" max="4" step="1" value="1" oninput="updateFilter(this.value, language); formValue=this.value">
+        <span id="slider-value" class="slider-value">Arabic subtitles</span>
+    </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
