@@ -48,10 +48,8 @@ function createVideoElement(videoSources, width = "100%"/*640*/, height = 360) {
     // Assign the video element to a global variable
     videoElement = video;
     setTimeout(()=>{if(videoElement.readyState==0){
-        document.getElementById('vframe').innerText = `download the episode with the name
-        ${SERIES_INFORMATION[series].name}-${episode}.mp4 or
-        ${SERIES_INFORMATION[series].name}-${episode}.webm
-        in the '2 ${SERIES_INFORMATION[series].name} videos' folder`;
+        document.getElementById('vframe').innerText = `to use this app offline and view videos offline
+            download it from the Google Drive account`;
         document.getElementById('vframe').style.color = 'white';
         console.log('video not found in folder')}},900)
     checkInterval = setInterval(checkVideoTime, 700);}
