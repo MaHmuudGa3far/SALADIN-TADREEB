@@ -1,4 +1,4 @@
-<!--I - -- - -- - -- - -- - باسم اللّه الرحمن الرحيم - -- - -- - -- - -- - I-->
+<!--I - -- - -- - -- - -- - باسم الله الرحمن الرحيم - -- - -- - -- - -- - I-->
 <!DOCTYPE html>
 <html>
 <head><title>الصَفحَة الرَئيسِيَّة</title>
@@ -11,27 +11,31 @@ body {
     margin: 0;font-family: Arial, sans-serif;display: flex;
     flex-direction: column;align-items: center;overflow: auto;}
 .main-div {
-    border: 20px double #87CEFA;width: 700px;display: flex;
+    border: 20px double #87CEFA;max-width: 700px;display: flex;
     flex-direction: column;}
 .title { text-align: center; margin-top: 0px;
     padding-top: 10px; background-color: #87CEFA; border: 10px double white;}
 /**********************************************************************/
 
 .video-container {display: flex;justify-content: center;align-items: center;}
-.video-container iframe {width: 698px;height: 390px;flex: 0 0 auto;
+.video-container iframe {width: 100%;height: 390px;flex: 0 0 auto;
     display: flex;align-items: center;margin: 0px;}
 
 /**********************************************************************/
-.options-div{display: flex;overflow-x: auto;padding-top: 20px;
-    padding-bottom: 20px;background-color: #87CEFA; align-items: center;
-    justify-content: center;}
+.options-div{
+    box-sizing: border-box;
+    align-items: center;justify-content: center;
+    padding-top: 10px; padding-bottom: 10px;
+    background-color: #87CEFA;}
 
-.form-container {flex: 0 0 auto;display: flex;align-items: center;
-    padding: 10px;background-color: #87CEFA;color: #fff;
-    border: 2px solid #fff;border-radius: 5px;margin: 0 10px;
-    width: 400px;}
-.form-options {display: flex;margin: 0 10px;}
-.form-options label {margin: 0 10px;}
+.form-container {
+    display: inline-block;
+    background-color: #87CEFA; border: 2px solid white; color: white;
+    border-radius: 5px;cursor: pointer;font-size: 16px;
+    padding: 5px; margin: 5px;
+    /*box-sizing: border-box;*/
+    /*flex: 0 0 auto;align-items: center;*/
+    /*border: 2px solid #fff;border-radius: 5px;*/}
 .dropdown {
     background-color: #87CEFA; border: 2px solid white;
     border-radius: 5px;padding: 5px; font-size: 16px;}
@@ -42,20 +46,12 @@ body {
 }
 
 .tooltip .tooltiptext {
-    visibility: hidden;
+    visibility: hidden;opacity: 0;transition: opacity 0.3s;
     width: 120px;
-    background-color: #555;
-    color: #fff;
+    background-color: #555;color: #fff;
     text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 70%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 0.3s;
+    border-radius: 6px;padding: 5px 0;
+    position: absolute;z-index: 1;bottom: 70%;left: 50%;margin-left: -60px;
 }
 
 .tooltip:hover .tooltiptext {
@@ -64,7 +60,7 @@ body {
 }
 
 
-.button-grid {text-align: center; box-sizing: border-box; padding-right: 10px; padding-left: 10px;width: 100%;}
+.button-grid {text-align: center; box-sizing: border-box; padding-right: 5px; padding-left: 5px;width: 100%;}
 
 .image-button {
     position: relative; /* Required for absolute positioning of the label */
@@ -76,7 +72,7 @@ body {
     border-radius: 12px; /* Rounded corners */
     width: 160px; /* Adjust the width */
     height: 90px; /* Adjust the height */
-    margin: 3px;
+    margin: 2px;
     color: transparent; /* Hide button text */
     justify-content: center; /* Center horizontally */
     align-items: center;    /* Center vertically */
@@ -140,7 +136,7 @@ body {
 </div>
 <div class="button-grid">
     <button class="image-button button100">
-        <img src="images/Al-Quran.png">
+        <img src="1 Saladin Webapp/images/Al-Quran.png">
     </button>
 </div>
 <div>
@@ -148,7 +144,7 @@ body {
 </div>
 <script id="subs_script"></script>
 <script src='SERIES INFORMATION.js'></script>
-<script src="app1/METHODS_MAIN.js"></script>
+<script src="1 Saladin Webapp/app1/METHODS_MAIN.js"></script>
 
 <script>
     let proposedSubsList = []; // AUTOMATICALLY GENERATED SUBS FILES PATHS FOR SEARCHING
@@ -254,20 +250,85 @@ body {
                     console.log(`Script ${scriptInfo.path} did not provide content or failed to load.`);}}));});
         return promise;}
     loadScriptsSequentially(proposedSubsList);
+    /*
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = () => resolve(src);
+        script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
+        document.head.appendChild(script);});}
+
+// Function to handle the loaded scripts
+function handleLoadedScripts(loadedScripts) {
+    console.log('Scripts loaded:', loadedScripts);
+    // SEARCH FOR AVAILABLE TRANSLATION
+    if (loadedScripts.includes(
+        subtitlesPath(SERIES_INFORMATION[series].name, episode, `-${language}`,'')))
+        {console.log(`${language} translation script was loaded`);}
+    else{skip_tran=true;}
+    // SEARCH FOR AVAILABLE TRANSLITERATION
+    if (loadedScripts.includes(
+        subtitlesPath(SERIES_INFORMATION[series].name, episode, `-transliteration`,'')))
+        {if(transliteration.length == arabic_subs.length){
+            console.log('the transliteration script was loaded');}}
+    else{console.log('no transliteration available');}
+    // THE BASIC SCRIPTS WITHOUT WHICH THIS EXERCISE IS SKIPPED
+    if (loadedScripts.includes(subtitlesPath(SERIES_INFORMATION[series].name, episode, '-ar',''))) {console.log('arabic and times scripts loaded');}}
+
+// Array of script sources to load
+let scriptsToLoad = []; // AUTOMATICALLY GENERATED SUBS FILES PATHS FOR SEARCHING
+let presentSubsList = []; // LIST OD SUBS FILES THAT ARE ACTUALLY PRESENT
+// POPULATE THE scriptsToLoad
+scriptsToLoad.push(subtitlesPath(SERIES_INFORMATION[series].name, episode, '-times',''));
+scriptsToLoad.push(subtitlesPath(SERIES_INFORMATION[series].name, episode, '-ar',''));
+scriptsToLoad.push(subtitlesPath(SERIES_INFORMATION[series].name, episode, `-${language}`,''));
+scriptsToLoad.push(subtitlesPath(SERIES_INFORMATION[series].name, episode, '-transliteration',''));
+
+
+// Load all scripts and handle the results
+Promise.allSettled(proposedSubsList.map(loadScript))
+    .then(results => {
+        const loadedScripts = results
+            .filter(result => result.status === 'fulfilled')
+            .map(result => result.value);
+        handleLoadedScripts(loadedScripts);})
+    .catch(error => {
+        console.error('Error loading scripts:', error);});
+
+    */
 </script>
 <div class="options-div">
     <div class="form-container slider-container">
         <select id="myDropdown" class="dropdown" onchange="updateFilter(arLevel, this.value)">
             <option value="en" selected>English</option>
             <option value="es">Castellano</option>
-            <option value="">No translation</option>
         </select>
+    </div>
+    <button id="cancel_filter" class="form-container"
+        style="">تعطيل</button>
+    <div class="form-container" style="width: 280px;">
         <input type="range" id="slider" min="1" max="4" step="1" value="1" oninput="updateFilter(this.value, language); formValue=this.value">
         <span id="slider-value" class="slider-value">Arabic subtitles</span>
     </div>
+    <button onclick="window.location.href='https://drive.google.com/drive/folders/1ltk5s5QbqNOxQIo2lfS4LjvbyWZ_bXUz';"
+            class="form-container" style="">
+        Google Drive</button>
+
 </div>
 </div>
 
 </div>
+<script>
+    document.getElementById("cancel_filter").addEventListener('click',
+        function(){
+            presentSubsList.forEach(button =>{
+            button.style.opacity = '1';
+            button.disabled = false;
+            language = 'en';document.getElementById('myDropdown').children[0].selected = true;
+            document.getElementById('slider-value').innerText = 'Arabic subtitles';arLevel=1;
+            document.getElementById('slider').value =1;})
+        })
+</script>
 </body>
 </html>
