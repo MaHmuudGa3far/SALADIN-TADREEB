@@ -38,7 +38,7 @@ SET A VARIABLE CALLED SKIP_TRANSLITERATION TO TRUE
 // CHOOSE A RANDOM SENTENCE AND SHUFFLE IT'S WORDS
 function chooseSubs(){
     chosen_lines = [];
-    for (i = 0; i < 5; i++){
+    for (i = 0; i < 7; i++){
         let chosen_line = choose_line(time_codes.length);
         chosen_lines.push(chosen_line);
         if(!skip_ar){chosen_ars.push(arabic_subs[chosen_line]);}
