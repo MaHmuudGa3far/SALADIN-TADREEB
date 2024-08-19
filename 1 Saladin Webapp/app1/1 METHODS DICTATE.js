@@ -310,7 +310,7 @@ function changeSubs(subsLang){
 /* * * * * BUTTONS' ACTIONS * * * * */
 /************************************/
 
-document.getElementById("return_to_main").addEventListener('click',()=>{window.location.href = '../../Main Page.html';});
+document.getElementById("return_to_main").addEventListener('click',()=>{window.location.href = '../../index.html';});
 document.getElementById("play_btn").addEventListener("click",()=>{onClickPlay()});
 document.getElementById("forward_btn").addEventListener("click", ()=>{seek_forward()});
 document.getElementById("backward_btn").addEventListener("click", ()=>{seek_backward()});
