@@ -81,12 +81,12 @@ const MAX_EPISODE_N_IN_SERIES = 33; // YOU CAN CHANGE IT
                      '_KJFEV-_AVs']*/
 const VIDEOS_MAIN = [
     // makkah
-    'GjRUJHXLm7M', 'dO74H5ZufpM', 'mDr-bWrjDS8', 'l4g-F6xAt8U', '7nxlR2RbV8U',
+    /*'GjRUJHXLm7M', 'dO74H5ZufpM', 'mDr-bWrjDS8', 'l4g-F6xAt8U', '7nxlR2RbV8U',
     'X5za9bw0Szw', 'OFh64xxYLxs', 'FUQqv-_6mLo',
     'AUc4IL79qxw', 'Kbwg0d619pY', 'pjmZx2fOT50', 'hQ9Q1zg_y5M', 'cnN3FQeqQx8',
     '1tvkaTbqGvM', '07BXnaely2o', 'UxMoCALQnZ0', 'F_ax-iSymSo', 'EwPnPLgf3ow',
     '7qfUOCkVccs', 'wDQPIos2H3Y', 'XRoXUANcK0k', '9W_mLQYury0', 'BsFAR7V8GM0',
-    'rziqXTu36qo', 'WTyZC5WPCIU', 'q8pK1RFATo0', '_KJFEV-_AVs',
+    'rziqXTu36qo', 'WTyZC5WPCIU', 'q8pK1RFATo0', '_KJFEV-_AVs',*/
     //safartas الشام
     'HE3DGQtegoI', 'rtb2htSjkGA', '6Qn9o-EJwII', 'mPRupNM31Aw', 'mPRupNM31Aw',
     'mPRupNM31Aw', 'mPRupNM31Aw', 'HUKGY8raa4c', 'HUKGY8raa4c', 'iKa0TLU7g9w',
@@ -105,7 +105,7 @@ const VIDEOS_MAIN = [
     '-EScpFihqEI', '-EScpFihqEI', '-EScpFihqEI', '-EScpFihqEI', '-EScpFihqEI',
     'tBBIqz-96D4', 'tBBIqz-96D4',
     //mamalik
-    'TaezBX2nL-A', 'O0IeN86Rr2I', 'cV7jQsiBR6g', '3sbVSWoyRHI', '-ne_WPQ8x5o',
+    /*'TaezBX2nL-A', 'O0IeN86Rr2I', 'cV7jQsiBR6g', '3sbVSWoyRHI', '-ne_WPQ8x5o',
     'ZSq8DcX3yhM', 'oV1_PdCVJvc', 'qqDM9t_W8OI', '_t9dPj8sQR0', 'W0t3UhEQY8A',
     'sVFEKw9wXB8', 'xz5bCB01NgY', 'qC5Mj49lalc', 'dCTeL-ABbT4', 'xqkKvYrtUBc',
     'XkNf2YLygyI', 'm_Zlv1x2lXQ', 'd9cJ6k57bz8', 'JVXWHf_nAgQ', 'vzg2JuvkD5o',
@@ -132,7 +132,7 @@ const VIDEOS_MAIN = [
     'AeaBFp30bqg', '3FigLSapaD8', 'e9fXHBovx0c', 'uYV2rc0o_Y0', 'vzg2JuvkD5o',
     'cV7jQsiBR6g', 'ZN3-LeDE8y4', '-ne_WPQ8x5o', 'oV1_PdCVJvc', 'oV1_PdCVJvc',
     'oV1_PdCVJvc', 'oV1_PdCVJvc', 'oV1_PdCVJvc', 'W0t3UhEQY8A', 'W0t3UhEQY8A',
-    'W0t3UhEQY8A', 'W0t3UhEQY8A', 'W0t3UhEQY8A'
+    'W0t3UhEQY8A', 'W0t3UhEQY8A', 'W0t3UhEQY8A'*/
 ]
 /* * * * * **************************************************** * * * * */
 /* * * * * **************************************************** * * * * */
