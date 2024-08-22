@@ -50,7 +50,7 @@ const SERIES_INFORMATION = [
     },
     alfetnah_alkobraa = {
         name: 'alfetnah alkobraa', title: 'الفتنة الكبرة', dialect: 'standard',
-        youtube_ip: {4: 'iuO5S7bcl6U', 5: 'uQo0YkFBOBY'}
+        youtube_ip: {4: 'iuO5S7bcl6U', 5: 'uQo0YkFBOBY', 6: 'AeVpEdbPp58'}
     },
     eldaHeeH = {
         name: 'eldaHeeH', title: 'الدحيح', dialect: 'egyptian',
