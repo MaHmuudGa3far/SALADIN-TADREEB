@@ -63,10 +63,14 @@ function getRandomElement(array) {
 function subtitlesPath(series_name, episode, arabic, translation){
     return `1 Saladin Webapp/subs_js/subs-${series_name}-${episode}${arabic}${translation}.js`;}
 
+
 function imagePaths(series_name, episode){
-    return [`1 Saladin Webapp/images/img-${series_name}-${episode}.png`,
+    return [`1 Saladin Webapp/images/img-${series_name}-${episode}.webp`,
+            `1 Saladin Webapp/images/img-${series_name}-all.webp`,
+            `1 Saladin Webapp/images/img-${series_name}-all.jpg`,
+            `1 Saladin Webapp/images/img-${series_name}-all.png`,
             `1 Saladin Webapp/images/img-${series_name}-${episode}.jpg`,
-            `1 Saladin Webapp/images/img-${series_name}-${episode}.webp`];}
+            `1 Saladin Webapp/images/img-${series_name}-${episode}.png`];}
 
 function videoPath(series_name, episode, format){
     return `../../${series_name} videos/${series_name}-${episode}.${format}`;}
