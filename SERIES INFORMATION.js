@@ -36,19 +36,22 @@ const DEFAULT_LANGUAGE = 'en';
 
 // LIST OF SUBTITLED SERIES THE PROGRAM WILL LOOK FOR
 const SERIES_INFORMATION = [
-    /*MohammadMansour = {
-        name: 'AHMED MANSOUR', title: 'احمد منصور', dialect: 'standard',
+    A_Witness_to_the_Century_podcast = {
+        name: 'A Witness to the Century podcast', title: 'كواليس شاهد على العصر', dialect: 'standard',
         youtube_ip: {
-            1: 'bF8k4cwpIHA', 2: 'AjYYHeA_HfY', 3: 'X2znGZarQm4'}
-    },*//*
+            01: 'Khd2xTg9p8Q', 02: 'SVauwqqcX20', 03: 'xMbDoTPiHvw',
+            04: 'JJQj1ov5Ukc', 05: 'wehRJJ92xYk', 06: 'Fg1IIA_8uSY',
+            07: '8bscQpT5DSw',
+            20: 'bF8k4cwpIHA', 21: 'AjYYHeA_HfY', 22: 'X2znGZarQm4'}
+    },
     alseerah_alnabaweiyah = {
         name: 'alseerah alnabaweiyah parts', title: 'السيرة النبوية | مقاطع', dialect: 'standard',
         youtube_ip: {1: 'O80hEczEEkk'}
-    },*//*
+    },
     alfetnah_alkobraa = {
         name: 'alfetnah alkobraa', title: 'الفتنة الكبرة', dialect: 'standard',
         youtube_ip: {4: 'iuO5S7bcl6U', 5: 'uQo0YkFBOBY'}
-    },*/
+    },
     eldaHeeH = {
         name: 'eldaHeeH', title: 'الدحيح', dialect: 'egyptian',
         youtube_ip: { // To link a youtube video to a subtitles file.
