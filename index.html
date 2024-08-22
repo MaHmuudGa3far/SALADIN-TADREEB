@@ -152,9 +152,10 @@ body {
     // POPULATE THE proposedSubsList
     for (let i=0; i<SERIES_INFORMATION.length; i++){
         for (let ii=1; ii<=MAX_EPISODE_N_IN_SERIES; ii++){
-            proposedSubsList.push({
-                series: i, episode: ii, variable: 'time_codes',
-                path: subtitlesPath(SERIES_INFORMATION[i].name, ii, '-times', '')})}}
+            if (SERIES_INFORMATION[i].youtube_ip[ii]!=undefined){
+                proposedSubsList.push({
+                    series: i, episode: ii, variable: 'time_codes',
+                    path: subtitlesPath(SERIES_INFORMATION[i].name, ii, '-times', '')})}}}
     // CREATE A DIV FOR EACH SERIES IN WHICH TO INCLUDE IT'S BUTTONS
     for (let i=0; i<SERIES_INFORMATION.length; i++){
         var div = document.createElement('div');
