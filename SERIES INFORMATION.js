@@ -39,7 +39,7 @@ const SERIES_INFORMATION = [
     A_Witness_to_the_Century_podcast = {
         name: 'A Witness to the Century podcast', title: 'كواليس شاهد على العصر', dialect: 'standard',
         youtube_ip: {
-            01: 'h6lno7wM0lw', 02: 'SVauwqqcX20', 03: 'xMbDoTPiHvw',
+            01: 'h6lno7wM0lw', 02: 'Bh_AgpASSkg', 03: 'xMbDoTPiHvw',
             04: 'JJQj1ov5Ukc', 05: 'wehRJJ92xYk', 06: 'Fg1IIA_8uSY',
             07: '8bscQpT5DSw',
             20: 'bF8k4cwpIHA', 21: 'AjYYHeA_HfY', 22: 'X2znGZarQm4'}
