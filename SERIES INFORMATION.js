@@ -44,6 +44,14 @@ const SERIES_INFORMATION = [
             07: '8bscQpT5DSw',
             20: 'bF8k4cwpIHA', 21: 'AjYYHeA_HfY', 22: 'X2znGZarQm4'}
     },
+    A_Memory_and_a_Lesson_se1 = {
+        name: 'A Memory and a Lesson se1 Fadel Soliman', title: 'ذكرى وعبرة الموسم الأول',
+        youtube_ip: {
+            01: 'ATdqxKuHC_g', 02: 'hbhUmNVltQo', 03: 'N-O3-dhIgUs', 04: 'eelQEsE9kf4',
+            05: 'kS2RRfpar8Q', 06: 'Bubf5R8XZ54', 07: '-YP0pY7twqU', 08: 'HJU5xPf6b_Y',
+            09: 'L0YBcl-uCc4', 10: 'VjTGsP-nGSM', 11: 'Pexp4Ydw_74', 12: 'sXEC1s210ZI'
+        }
+    },
     alseerah_alnabaweiyah = {
         name: 'alseerah alnabaweiyah parts', title: 'السيرة النبوية | مقاطع', dialect: 'standard',
         youtube_ip: {1: 'O80hEczEEkk'}
