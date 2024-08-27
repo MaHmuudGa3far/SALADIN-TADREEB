@@ -18,9 +18,10 @@ function separate_words2(sentences){
     const result = [];
     sentences.forEach((sentence, index) => {
         // Split the sentence into words using a regular expression that matches Arabic word boundaries
-        const words = sentence.split(/\s+/);
+        const words = sentence.replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/[^a-zA-Z0-9\u0600-\u06FF\u0400-\u04FF\s]/g, '').trim().split(/\s+/);
+        console.log('words:::::', words);
         // Add the words to the result array
-        result.push(...words);
+        if(true){result.push(...words);}
         /*// Add ' ___ ' after each sentence except the last one
         if (index < sentences.length - 1) {
             result.push('___');
