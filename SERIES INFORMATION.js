@@ -45,7 +45,7 @@ const SERIES_INFORMATION = [
             20: 'bF8k4cwpIHA', 21: 'AjYYHeA_HfY', 22: 'X2znGZarQm4'}
     },
     A_Memory_and_a_Lesson_se1 = {
-        name: 'A Memory and a Lesson se1 Fadel Soliman', title: 'ذكرى وعبرة الموسم الأول',
+        name: 'A Memory and a Lesson se1 Fadel Soliman', title: 'ذكرى وعبرة الموسم الأول', dialect: 'egyptian',
         youtube_ip: {
             01: 'ATdqxKuHC_g', 02: 'hbhUmNVltQo', 03: 'N-O3-dhIgUs', 04: 'eelQEsE9kf4',
             05: 'kS2RRfpar8Q', 06: 'Bubf5R8XZ54', 07: '-YP0pY7twqU', 08: 'HJU5xPf6b_Y',
