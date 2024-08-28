@@ -49,7 +49,12 @@ const SERIES_INFORMATION = [
         youtube_ip: {
             01: 'ATdqxKuHC_g', 02: 'hbhUmNVltQo', 03: 'N-O3-dhIgUs', 04: 'eelQEsE9kf4',
             05: 'kS2RRfpar8Q', 06: 'Bubf5R8XZ54', 07: '-YP0pY7twqU', 08: 'HJU5xPf6b_Y',
-            09: 'L0YBcl-uCc4', 10: 'VjTGsP-nGSM', 11: 'Pexp4Ydw_74', 12: 'sXEC1s210ZI'
+            09: 'L0YBcl-uCc4', 10: 'VjTGsP-nGSM', 11: 'Pexp4Ydw_74', 12: 'sXEC1s210ZI',
+            13: '5aY77Xzp7fg', 14: 'BKYH010QBAg', 15: 'nzwRwHKzzns', 16: 'phZNJvy-O5s',
+            17: '6zNrBIfUxAw', 18: 'YV-ZiMU2glg', 19: '4P7fJ83mCJU', 20: 'kcO1fXvXjdU',
+            21: '5z59Zt0IAD0', 22: 'QYDlYomPumM', 23: 'goVqvMLX21U', 24: 'rf8QXVZftVY',
+            25: 'rpWueLQcI9g', 26: 'W14tTtgK7AU', 27: 'W14tTtgK7AU', 28: '6GPR3pa6aos',
+            29: 'lPaPgcrD2jY', 30: 'RObfVozs7rg', 31: '0IWO9c7upmc'
         }
     },
     alseerah_alnabaweiyah = {
