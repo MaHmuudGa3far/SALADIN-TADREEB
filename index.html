@@ -149,6 +149,7 @@ body {
 <script>
     let proposedSubsList = []; // AUTOMATICALLY GENERATED SUBS FILES PATHS FOR SEARCHING
     let presentSubsList = []; // LIST OD SUBS FILES THAT ARE ACTUALLY PRESENT
+    let presentSubsList2 = [];
     // POPULATE THE proposedSubsList
     for (let i=0; i<SERIES_INFORMATION.length; i++){
         for (let ii=1; ii<=MAX_EPISODE_N_IN_SERIES; ii++){
@@ -205,9 +206,10 @@ body {
                     video_title.classList.add('button-label');
                     video_title.textContent = `الحلقة ${scriptInfo.episode}`;
                     button.appendChild(video_title);
-
+                    // TOOLTIP SHOWING THE AVAILABLE SUBTITLES
                     video_subs = document.createElement('span');
                     video_subs.classList.add('tooltiptext')
+                    video_subs.innerHTML = '<p style="margin: 2px">loading...</p>';
                     button.appendChild(video_subs);
 
                     findExistingImage(imagePaths(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode))
@@ -217,40 +219,60 @@ body {
                             //console.log('image_____________________exists: '+existingImagePath);
                             button.style.backgroundImage = `url("${existingImagePath}")`;}})
                     document.getElementById(`div-${SERIES_INFORMATION[scriptInfo.series].name}`).appendChild(button);
-                    presentSubsList.push(button);
-                    // NOTING WHICH EPISODES ARE IN STANDARD ARABIC
-                    if(SERIES_INFORMATION[scriptInfo.series].dialect == 'standard'){is_standard.push(button);}
-                    // NOTING WHICH EPISODES HAVE ARABIC SUBTITLES AND WHICH ONES HAVE DIACRITICS
-                    loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-ar'))
-                    .then(success => {if(success){
-                        has_ar_subs.push(button);
-                        // LOOP THROUGH SOME SENTENCES AND WRITE DOWN EVERY TIME A DIACRITIC APPEARS
-                        ar_subs = arabic_subs; let diac_count = 0;
-                        for (let idx = 0; idx <= 3; idx++){// LOOP THROUGH SENTENCES
-                            const c_idx = idx;
-                            for (let idx2=0; idx2 <= ar_subs[idx][0].length; idx2++){ // LOOP THROUGH SENTENCE LETTERS
-                                const c_idx2 = idx2;
-                                if (ar_subs[c_idx][0][c_idx2]=='َ' ||  ar_subs[c_idx][0][c_idx2]=='ِ' || ar_subs[c_idx][0][c_idx2]=='ُ'){
-                                    diac_count++;}}}
-                        // IF ENOUGH DIACRITICS ARE FOUND INCLUDE THE EPISODE
-                        if (diac_count >= 7){has_diacritics.push(button)}}})
-                    // NOTING WHICH EPISODES HAVE ENGLISH SUBTITLES
-                    loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-en'))
-                    .then(success => {if(success){has_en_subs.push(button);}})
-                    // NOTING WHICH EPISODES HAVE SPANISH SUBTITLES
-                    loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-es'))
-                    .then(success => {if(success){has_es_subs.push(button);
-                        // NOTING DOWN WHICH ONES HAVE TRANSLATION SUBTITLES IN GENERAL
-                        has_translation_subs = mergeUnique(has_en_subs, has_es_subs);}})
-                    // NOTING DOWN WHICH ONES HAVE TRANSLITERATION
-                    loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-transliteration'))
-                    .then(success => {if(success){
-                        if(transliteration.length == time_codes.length)
-                            {has_transliteration.push(button);}}})}
+                    presentSubsList.push(button);presentSubsList2.push(scriptInfo);}
                 else {
                     console.log(`Script ${scriptInfo.path} did not provide content or failed to load.`);}}));});
         return promise;}
-    loadScriptsSequentially(proposedSubsList);
+    loadScriptsSequentially(proposedSubsList).then(()=>{
+        // For each elemtent in the presentSubsList find it's subtitles files
+        let promise = Promise.resolve();
+        console.log('/*/*/*/*/*/*/ */*/*/*/*/ */*/*/* /*/*/*/* /*/*/*/ */*/*');
+        var idx = -1;
+        presentSubsList.forEach(button => {
+            promise = promise.then(() => {
+                idx = idx+1;
+                var scriptInfo = presentSubsList2[idx];
+                var tooltiptext = presentSubsList[idx].getElementsByClassName('tooltiptext')[0];
+                tooltiptext.innerHTML = '<p style="margin:2px;">dialect: '+SERIES_INFORMATION[scriptInfo.series].dialect+'</p>';
+                console.log(tooltiptext);
+                // NOTING WHICH EPISODES ARE IN STANDARD ARABIC
+                if(SERIES_INFORMATION[scriptInfo.series].dialect == 'standard'){is_standard.push(button);}
+                // NOTING WHICH EPISODES HAVE ARABIC SUBTITLES AND WHICH ONES HAVE DIACRITICS
+                loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-ar'))
+                .then(success => {if(success){
+                    has_ar_subs.push(button);
+                    // LOOP THROUGH SOME SENTENCES AND WRITE DOWN EVERY TIME A DIACRITIC APPEARS
+                    ar_subs = arabic_subs; let diac_count = 0;
+                    for (let idx = 0; idx <= 3; idx++){// LOOP THROUGH SENTENCES
+                        const c_idx = idx;
+                        for (let idx2=0; idx2 <= ar_subs[idx][0].length; idx2++){ // LOOP THROUGH SENTENCE LETTERS
+                            const c_idx2 = idx2;
+                            if (ar_subs[c_idx][0][c_idx2]=='َ' ||  ar_subs[c_idx][0][c_idx2]=='ِ' || ar_subs[c_idx][0][c_idx2]=='ُ'){
+                                diac_count++;}}}
+                    // IF ENOUGH DIACRITICS ARE FOUND INCLUDE THE EPISODE
+                    if (diac_count >= 7){
+                        has_diacritics.push(button);
+                        tooltiptext.innerHTML = tooltiptext.innerHTML + ('<p style="margin: 2px;">has diacritics</p>');
+                    }}}).then(()=>{tooltiptext.innerHTML = tooltiptext.innerHTML + ('<p style="margin: 2px;display:inline;">subs: </p>');});
+                // NOTING WHICH EPISODES HAVE ENGLISH SUBTITLES
+                loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-en'))
+                .then(success => {if(success){
+                    has_en_subs.push(button);
+                    tooltiptext.innerHTML = tooltiptext.innerHTML + ('<p style="margin: 2px;display: inline;"> en</p>');}})
+                // NOTING WHICH EPISODES HAVE SPANISH SUBTITLES
+                loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-es'))
+                .then(success => {if(success){
+                    has_es_subs.push(button);
+                    tooltiptext.innerHTML = tooltiptext.innerHTML + ('<p style="margin: 2px;display: inline;"> es</p>');
+                    // NOTING DOWN WHICH ONES HAVE TRANSLATION SUBTITLES IN GENERAL
+                    has_translation_subs = mergeUnique(has_en_subs, has_es_subs);}})
+                // NOTING DOWN WHICH ONES HAVE TRANSLITERATION
+                loadDynamicScript(subtitlesPath(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode, '', '-transliteration'))
+                .then(success => {if(success){
+                    if(transliteration.length == time_codes.length)
+                        {has_transliteration.push(button);}}})
+            })
+        });})
     /*
 function loadScript(src) {
     return new Promise((resolve, reject) => {
