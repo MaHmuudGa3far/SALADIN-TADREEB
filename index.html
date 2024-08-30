@@ -146,6 +146,7 @@ body {
 <script src='SERIES INFORMATION.js'></script>
 <script src="1 Saladin Webapp/app1/METHODS_MAIN.js"></script>
 
+
 <script>
     let proposedSubsList = []; // AUTOMATICALLY GENERATED SUBS FILES PATHS FOR SEARCHING
     let presentSubsList = []; // LIST OD SUBS FILES THAT ARE ACTUALLY PRESENT
@@ -186,6 +187,43 @@ body {
         });
     }
 
+    function loadScriptsSequentially(scripts) {
+        let promise = Promise.resolve();
+
+        scripts.forEach(scriptInfo => {
+            promise = promise.then(() => loadScript(scriptInfo.path, scriptInfo.variable).then(variableContent => {
+                if (variableContent !== null) {
+                    // Perform operations with the `variableContent` here if it exists
+                    console.log(`Processing content of variable ${scriptInfo.variable}:`, variableContent[0]);
+                    // Example operation
+                    // processScriptContent(variableContent); // Replace this with your actual processing function
+                    var button = document.createElement('button');
+                    /////////////////////////////////////////////////////////////////////////////////////
+                    button.addEventListener('click', ()=>{navigateWithQuery(scriptInfo.series,scriptInfo.episode)})
+                    button.id = `button-${SERIES_INFORMATION[scriptInfo.series].name}-${scriptInfo.episode}`;
+                    button.classList.add("image-button");
+                    button.classList.add("tooltip");
+                    video_title = document.createElement('span');
+                    video_title.classList.add('button-label');
+                    video_title.textContent = `الحلقة ${scriptInfo.episode}`;
+                    button.appendChild(video_title);
+                    // TOOLTIP SHOWING THE AVAILABLE SUBTITLES
+                    video_subs = document.createElement('span');
+                    video_subs.classList.add('tooltiptext')
+                    video_subs.innerHTML = '<p style="margin: 2px">loading...</p>';
+                    button.appendChild(video_subs);
+
+                    findExistingImage(imagePaths(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode))
+                    .then((result) => {
+                        existingImagePath = result;
+                        if (existingImagePath) {
+                            //console.log('image_____________________exists: '+existingImagePath);
+                            button.style.backgroundImage = `url("${existingImagePath}")`;}})
+                    document.getElementById(`div-${SERIES_INFORMATION[scriptInfo.series].name}`).appendChild(button);
+                    presentSubsList.push(button);presentSubsList2.push(scriptInfo);}
+                else {
+                    console.log(`Script ${scriptInfo.path} did not provide content or failed to load.`);}}));});
+        return promise;}
     loadScriptsSequentially(proposedSubsList).then(()=>{
         // For each elemtent in the presentSubsList find it's subtitles files
         let promise = Promise.resolve();
@@ -237,7 +275,8 @@ body {
                         if(transliteration.length == time_codes.length)
                             {has_transliteration.push(button);}}})})
             })
-        });})    /*
+        });})
+    /*
 function loadScript(src) {
     return new Promise((resolve, reject) => {
         const script = document.createElement('script');
@@ -285,6 +324,7 @@ Promise.allSettled(proposedSubsList.map(loadScript))
 
     */
 </script>
+    
 <div class="options-div">
     <div class="form-container slider-container">
         <select id="myDropdown" class="dropdown" onchange="updateFilter(arLevel, this.value)">
