@@ -147,6 +147,7 @@ body {
 <script src="1 Saladin Webapp/app1/METHODS_MAIN.js"></script>
 
 
+
 <script>
     let proposedSubsList = []; // AUTOMATICALLY GENERATED SUBS FILES PATHS FOR SEARCHING
     let presentSubsList = []; // LIST OD SUBS FILES THAT ARE ACTUALLY PRESENT
@@ -274,6 +275,12 @@ body {
                     .then(success => {if(success){
                         if(transliteration.length == time_codes.length)
                             {has_transliteration.push(button);}}})})
+                findExistingImage(imagePaths(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode))
+                    .then((result) => {
+                        existingImagePath = result;
+                        if (existingImagePath) {
+                            //console.log('image_____________________exists: '+existingImagePath);
+                            button.style.backgroundImage = `url("${existingImagePath}")`;}})
             })
         });})
     /*
