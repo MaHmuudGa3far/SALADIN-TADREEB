@@ -214,13 +214,13 @@ body {
                     video_subs.innerHTML = '<p style="margin: 2px">loading...</p>';
                     button.appendChild(video_subs);
 
-                    /*findExistingImage(imagePaths(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode))
+                    findExistingImage(imagePaths(SERIES_INFORMATION[scriptInfo.series].name, scriptInfo.episode))
                     .then((result) => {
                         existingImagePath = result;
                         if (existingImagePath) {
                             //console.log('image_____________________exists: '+existingImagePath);
                             button.style.backgroundImage = `url("${existingImagePath}")`;}})
-                    */
+                    
                     document.getElementById(`div-${SERIES_INFORMATION[scriptInfo.series].name}`).appendChild(button);
                     presentSubsList.push(button);presentSubsList2.push(scriptInfo);}
                 else {
