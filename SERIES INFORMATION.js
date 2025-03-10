@@ -36,6 +36,16 @@ const DEFAULT_LANGUAGE = 'en';
 
 // LIST OF SUBTITLED SERIES THE PROGRAM WILL LOOK FOR
 const SERIES_INFORMATION = [
+    saladin = { // To link a youtube video to a subtitles file.
+        // Must have same episode number.
+        name: 'saladin', title: 'مسلسل صلاح الدين', dialect: 'standard',
+        youtube_ip: {
+            01: 'zbXRh_iySiQ', 02: '085PLOXUNow', 03: 'wj0zR_J11Sc', 04: 'xFSbOL5syXE',
+            05: 'Ao7P7iP-As0', 06: 'giNFlDcV7eA', 07: 'nLNLvLOiuwQ', 11: 'OSa2DAHccUM',
+            12: '_myVAAWK2gg', 13: 'XIFuHUrhzRY', 14: 'ooGLNF4m7Mg', 15: '4nDBg6Xlkqs',
+            19: 'w4CUTZxUR2E', 20: '3Y0PKtMjjjM', 21: '8NmZ-ezbPyA', 22: 'MxZ7bOwX2A8',
+            23: '1j6cY9k6ibI', 24: 'hY6gjgq-mt8', 25: '',}
+    },
     A_Witness_to_the_Century_podcast = {
         name: 'A Witness to the Century podcast', title: 'كواليس شاهد على العصر', dialect: 'standard',
         youtube_ip: {
@@ -72,16 +82,6 @@ const SERIES_INFORMATION = [
             1: 'YXcg79ZcQc4', 2: '-DVXdsZbcf8', 3: 'Fi5grDvWgew',
             4: 'Y2rFelckA48', 5: '_Eduwcfv2_I', 6: 'nIUTsuHD4-4',
             7: 'Li9bNk1enQw', 8: 'L-AkMLZCiNs',}
-    },
-    saladin = { // To link a youtube video to a subtitles file.
-        // Must have same episode number.
-        name: 'saladin', title: 'مسلسل صلاح الدين', dialect: 'standard',
-        youtube_ip: {
-            01: 'zbXRh_iySiQ', 02: '085PLOXUNow', 03: 'wj0zR_J11Sc', 04: 'xFSbOL5syXE',
-            05: 'Ao7P7iP-As0', 06: 'giNFlDcV7eA', 07: 'nLNLvLOiuwQ', 11: 'OSa2DAHccUM',
-            12: '_myVAAWK2gg', 13: 'XIFuHUrhzRY', 14: 'ooGLNF4m7Mg', 15: '4nDBg6Xlkqs',
-            19: 'w4CUTZxUR2E', 20: '3Y0PKtMjjjM', 21: '8NmZ-ezbPyA', 22: 'MxZ7bOwX2A8',
-            23: '1j6cY9k6ibI', 24: 'hY6gjgq-mt8', 25: '',}
     }
     // ADD MORE SERIES HERE
     // AND FOLLOW THE NAMING CONVENTION SO THAT THE PROGRAM FINDS THE FILES
